@@ -1,0 +1,877 @@
+$offwhite : #ddd;
+@import url('https://fonts.googleapis.com/css?family=PT+Serif');
+
+@font-face{
+    font-family : "Big John";
+    src : url("/Fonts/BIG JOHN.otf");
+}
+@font-face{
+    font-family: "Slim Joe";
+    src : url("/Fonts/Slim Joe.otf");
+}
+@import '../../node_modules/react-quill/dist/quill.snow.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400');
+@import url('https://fonts.googleapis.com/css?family=Amiri');
+
+$headerHeight : 120px;
+$filter-width: 240px;
+
+@font-face {
+    font-family: "Raleway";
+    src: url("/Fonts/SF-Pro-Display-Regular.otf");
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+}
+
+#background-cont{
+    position: fixed;
+    background: #1E1D1D;
+}
+
+body {
+    font-size: 0.9em;
+    .home-container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .home-body{
+            position: relative;
+            top: -10%;
+            align-self: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+            .homelogo{
+                margin: 12px;
+                font-size: 6em;
+                font-family: 'Roboto';
+                font-weight: 80;
+                span{
+                    color: blueviolet;
+                }
+            }
+
+        }
+        
+        .greeting{
+            position: absolute;
+            left: 10px;
+            right:10px;
+            margin: 20px;
+            height: 50px;
+            width: 200px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .profile-pic{
+                position: relative;
+                img{
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.507);
+                }
+                .notifications{
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: red;
+                    color: #fff;
+                    padding: 3px;
+                    padding-top: 1px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'Raleway', sans-serif;
+                    font-size: 0.8em;
+                }
+            }
+            .user-name{
+                margin-left: 20px;
+                font-family: 'Raleway', sans-serif;
+                color: #ddd;
+                font-size: 0.9em;
+            }
+        }
+        
+    }
+    
+    .search-container{
+        
+        display: grid;
+        grid-template-columns: 230px 10fr;
+        grid-template-rows: 130px 10fr;
+        position: fixed;
+        .header-container{
+            grid-column: 1 / 3;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            background : #1D1C1C;
+        }
+        .body-container{
+            grid-column: 2/3;
+            border-top: 1px solid rgba(170, 170, 170, 0.507);
+            overflow: auto;
+            .no-result{
+                text-align: center;
+                color: black;
+            }
+            .page-control-container{
+                margin: auto;
+                width: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10;
+                margin-bottom: 30px;
+                img{
+                    width:30px;
+                    height: 30px;
+                    cursor: pointer;
+                }
+                span{
+                    padding: 5px 10px;
+                    color: black;
+                }
+            }
+            ul{
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                padding: 4px;
+                li{
+                    margin: auto;
+                    margin-top: 10px;
+                    position: relative;
+                    width: 94%;
+                    background: rgb(247, 247, 247);
+                    font-family: 'Raleway', sans-serif;
+                    padding: 13px;
+                    color: black;
+                    cursor: pointer;
+                    line-height: 30px;
+                    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.388);
+                    border-radius: 7px;
+                    overflow: visible;
+                    span{
+                        display: block;
+
+                        &:nth-child(1){
+                            font-weight: 200;
+                            padding-right: 40px;
+                        }
+                        &:nth-child(2){
+                            font-weight: bolder;
+                            font-size: 1.1em;
+                            border-bottom: 1px solid #aaa;
+                            margin-bottom: 10px;
+                        }
+                        &:nth-child(3){
+                            line-height: 23px;
+                        }
+
+                    }
+                    .court-type{
+                        font-weight: bold;
+                        display: block;
+                        font-size: 0.9em;
+                    }
+                    .tag{
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        text-align: center;
+                        font-size: 0.8em;
+                        width: 100px;
+                        color: whitesmoke;
+                        padding: 0px 7px;
+                        background: rgb(0, 0, 0);
+                        border-bottom-left-radius: 6px;
+                        border-top-right-radius: 6px;
+                    }
+                    
+                }
+            }
+        }
+        .filters-container{
+            grid-column: 1 / 2;
+            z-index: 3;
+            color: black;
+            border-right: 1px solid #ddd;
+            margin-top: 20px;
+            padding: 10px;
+            overflow-y: auto;
+            .header{
+                padding-bottom: 3px;
+                border-bottom: 2px solid #ddd;
+                margin-bottom: 10px;
+                padding-left: 10px;
+                span{
+                    font-weight: bold;
+                    font-size: 1.5em;
+                    font-family: 'Raleway', sans-serif;
+                }
+            }
+            .border-bottom{
+                border-bottom: 1px solid #ddd;
+            }
+            .search-by{
+                .field{
+                    position: relative;
+                    input{
+                        padding: 8px;
+                        margin-bottom: 10px;
+                        width: 90%;
+                        border-radius: 5px;
+                        border: 1px solid #ddd;
+                        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+                        
+                    }
+                        img{
+                            background: rgb(113, 161, 223);
+                            position: absolute;
+                            padding: 10px;
+                            border-top-right-radius: 5px;
+                            border-bottom-right-radius: 5px;
+                            height: 14px;
+                            top: 0;
+                            right: 0;
+                            width: 10px;
+                        }
+                }
+                
+            }
+            .courts{
+                ul{
+                    padding: 0px 10px;
+                    margin: 0;
+                }
+                .container {
+                    display: block;
+                    position: relative;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    font-size: 0.9em;
+                    font-family: 'Raleway', sans-serif;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+                
+                /* Hide the browser's default checkbox */
+                .container input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+                
+                /* Create a custom checkbox */
+                .checkmark {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 15px;
+                    width: 15px;
+                    background-color: #eee;
+                }
+                
+                /* On mouse-over, add a grey background color */
+                .container:hover input ~ .checkmark {
+                    background-color: #ccc;
+                }
+                
+                /* When the checkbox is checked, add a blue background */
+                .container input:checked ~ .checkmark {
+                    background-color: #2196F3;
+                }
+                
+                /* Create the checkmark/indicator (hidden when not checked) */
+                .checkmark:after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                }
+                
+                /* Show the checkmark when checked */
+                .container input:checked ~ .checkmark:after {
+                    display: block;
+                }
+                
+                /* Style the checkmark/indicator */
+                .container .checkmark:after {
+                    left: 5px;
+                    top: 2px;
+                    width: 2px;
+                    height: 5px;
+                    border: solid white;
+                    border-width: 0 3px 3px 0;
+                    -webkit-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            }
+            .year-of-judgement{
+                font-family: 'Raleway',sans-serif;
+                
+                .yoj-body{
+                    padding: 10px;
+                    padding-top: 0;
+                    position: relative;
+                    font-size: 0.9em;
+                    div{
+                        margin: 10px 0px;
+                    }
+                    input{
+                        width: 100px;
+                        padding: 2px;
+                        position: absolute;
+                        right: 10px;
+                    }
+                }
+            }
+            .heading{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                font-family: 'Raleway', sans-serif;
+                font-weight: bold;
+            }
+            .toggle{
+                cursor: pointer;
+                img{
+                    width: 15px;
+                }
+            }
+            .right-side-cont{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button{
+                    margin: 0 15px;
+                    transform: translate(0, -3px);
+                    cursor: pointer;
+                    color: white;
+                    background: rgba(41, 116, 255, 0.651);
+                    border: none;
+                    padding: 6px;
+                    border-radius: 5px;
+                    outline: none;
+                }
+            }
+        }
+        
+
+    }
+
+    .search-bar-container{
+        .search-bar{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: white;
+            border-radius: 40px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.541);
+            font-family: 'Raleway', sans-serif;
+            position: relative;
+            .logo{
+                padding: 10px;
+                padding-left: 15px;
+                color: #5B94FF;
+                border-right: 1px solid #eee;
+            }
+            .search-text{
+                padding: 0 10px;
+                color: rgb(83, 83, 83);
+                border: none;
+                font-size: 1.0em;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                font-family: 'Raleway', sans-serif;
+                outline: none;
+                width: 80%;
+                &::placeholder{
+                    color: #BCBCBC;
+                }
+            }
+            a{
+                cursor: pointer;
+                position: absolute;
+                right: 12px;
+                margin-top: 1px;
+                img{
+                    width: 15px; 
+                    color: red;
+                }
+                border: none;
+            }
+        }
+        .search-filter{
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+            margin: auto;
+            margin-top: 10px;
+            span{
+                color: #C7C7C7;
+                font-family: 'Raleway', sans-serif;
+                font-size: 0.5em;
+                margin: 0;
+                margin: 0 10px;
+                button{
+                    background: transparent;
+                    border: none;
+                    padding:3px;
+                    font-size: 2em;
+                    cursor: pointer;
+                    outline: none;
+                    color: #C7C7C7;
+                    transition: color 0.1s ease 0s;
+                }
+            }
+            .active{
+                color: #689DFF;
+            }
+            .search-results-type{
+                font-size: 2em;
+                display: flex;
+                align-items: center;
+                margin-left: 40px;
+                .text{
+                    font-size: 0.5em;
+                    font-family: 'Raleway', sans-serif;
+                }
+                .search-type-list-container{
+                    margin-left: 10px;
+                    width: 60px;
+                    text-align: center;
+                    border-radius: 5px;
+                    position: relative;
+                    cursor: pointer;
+                    span{
+                        color: #aaa;
+                    }
+                    button{
+                        outline: none;
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        color: #ddd;
+                    }
+                    .search-type-list{
+                        &:hover{
+                            background: #333;
+                        }
+                        background: rgba(0, 0, 0, 0.164);
+                        position: absolute;
+                        top: -12px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        width: 75px;
+                        z-index: 6;
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                        .partial-visible{
+                            display: none;
+                        }
+                        .list-visible{
+                            display: block;
+                        }
+                        li{
+                            height: 24px;
+                            border-radius: 5px;
+                            padding:0;
+                            button{
+                                position: relative;
+                                top: -10px;
+                            }
+                        &:hover{
+                            background: rgb(44, 44, 44)
+                        }
+                        }
+                    }
+                }
+            }
+        }
+
+        
+    }
+    .search-bar-position-home{
+        width: 450px;
+        height: 50px;
+    }
+
+    .search-bar-position-search{
+        width: 600px;
+        margin-top: 14px;
+        .search-filter{
+            padding-left: 10px;
+            span{
+                margin-left: 2px;
+            }
+        }
+    }
+
+    .body{
+        background: whitesmoke;  
+    }
+    .menu-container{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        padding: 5px;
+        background-color: rgba(245, 245, 245, 0.527);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        cursor: pointer;
+        z-index: 1;
+        transition: background-color 0.3s ease 0s;
+        img{
+           width: 20px;
+           background: transparent;
+        }
+        &:hover{
+            background-color: rgb(125, 186, 255);
+        }
+    }
+}
+
+.doc-view-container{
+    background: #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.664);
+    z-index: 10;
+    
+    .doc-main{
+        height: 90%;
+        width: 90%;
+        border-radius: 8px;
+        padding: 10px;
+        top: 30px;
+        margin: auto;
+        background: rgb(255, 255, 255);
+        position: absolute;
+        font-family: 'Roboto', serif;
+        top: 30px;
+        bottom: 30px;
+        right: 10px;
+        left: 10px;
+        overflow: hidden;
+        .doc-text-main{
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            .doc-text{
+                display: block;
+                color: black;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: -18px; /* Increase/Decrease this value for cross-browser compatibility */
+                overflow-y: scroll;
+                word-wrap: break-word;
+                pre{ 
+                    white-space: pre-wrap;
+                    font-family: 'Roboto', sans-serif; 
+                    word-wrap: break-word;
+                }
+            }
+            .close-button{
+                position: absolute;
+                border-radius: 10px;
+                background: transparent;
+                top: 5px;
+                right: 5px;
+                cursor: pointer;
+                padding: 1px;
+                margin: 0;
+                height: 20px;
+                transition: background-color 0.3s ease 0s;
+                &:hover{
+                    background: #ddd;
+                }
+                img{
+                    padding: 3px;
+                    width: 15px;
+                }
+            }
+            .save-button{
+                position: absolute;
+                bottom: 30px;
+                right: 10px;
+                height: 10px;
+                cursor: pointer;
+                img{
+                    padding: 5px;
+                    width: 20px;
+                    border-radius: 10px;
+                    background-color: rgb(160, 255, 116);
+                    border: 2px solid rgb(130, 255, 72);
+                    transition: background-color 0.3s ease 0s;
+                    &:hover{
+                        background-color: rgb(130, 255, 72);
+                    }
+                }
+            }
+        }
+        .bookmark-icon{
+            position: absolute;
+            top: -1px;
+            left: 20px;
+            width: 20px;
+        }
+        div{
+            margin-bottom: 4px;
+            text-align: justify;
+            word-wrap: break-word;
+        }
+        .docsource_main{
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(0, 68, 170);
+            cursor: pointer;
+            &:hover{
+                color: rgb(0, 35, 88);
+            }
+        }
+    }
+    .savetocase{
+        position: relative;
+        top: 10%;
+        width: 600px;
+        border-radius: 3px;
+        background: rgb(255, 255, 255);
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.308);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        input{
+            width: 93%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.411);
+            border: none;
+            font-weight: bold;
+        }
+        .save-button{
+            width: 100px;
+            padding: 10px;
+            background: rgb(99, 212, 47);
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        label{
+            position: relative;
+            left: 10px;
+            margin-top: 20px;
+            color: black;
+            .checkmark{
+                left: 0;
+                box-shadow: 0px 0px 2px black;
+            }
+            .text{
+                position: relative;
+                left: 20px;
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+        }
+        .save-cases-container{
+            
+            width: 95%;
+            .title{
+                font-family: 'Raleway', sans-serif;
+                color: black;
+                font-size: 1.4em;
+                font-weight: bold;
+            }
+            .close-button{
+                position: absolute;
+                top: 10px;
+                cursor: pointer;
+                right: 10px;
+                width: 12px;
+            }
+            ul{
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                padding: 0;
+                li{
+                    margin: 7px;
+                    background: transparent;
+                    box-shadow: none;
+                    width: 80px;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 2fr 1fr;
+                    line-height: 1.1em;
+                    text-align: center;
+                    font-weight: lighter;
+                    img{
+                        margin: auto;
+                        margin-bottom: 5px;
+                        width: 65px;
+                    }
+                }
+                .selected-case{
+                    background: rgb(123, 255, 130);
+                }
+            }
+        }
+    }
+}
+  .custom-radio-button{
+    
+    .container {
+        display: block;
+        width: 90%;
+        position: relative;
+        padding-left: 10px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 0.9em;
+        font-family: 'Raleway',sans-serif;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Hide the browser's default radio button */
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 15px;
+        width: 15px;
+        background-color: #eee;
+        border-radius: 50%;
+    }
+    
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+    
+    /* When the radio button is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+        background-color: #2196F3;
+    }
+    
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked ~ .checkmark:after {
+        display: block;
+    }
+    
+    /* Style the indicator (dot/circle) */
+    .container .checkmark:after {
+         top: 5px;
+        left: 5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: white;
+    }
+}
+
+.loader-container{
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.767);
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader-container img{
+        position: relative;
+        top: -9px;
+        right: -16px;
+        width: 60px;
+        /* transform: rotate(45deg); */
+        animation: tapanim 1s infinite ease-out;
+        transform-origin: 95% 95%;
+}
+.loader{
+    height: 150px;
+    width: 150px;
+}
+
+@keyframes tapanim{
+    0%{
+        transform: rotate(10deg);
+    }
+    20%{
+        transform: rotate(-45deg);
+    }
+    100%{
+        transform: rotate(10deg);
+    }
+}
+.base{
+    width: 80px;
+    height: 5px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+.particle{
+    width: 30px;
+    height: 10px;
+}

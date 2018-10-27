@@ -1,16 +1,21 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+require('dotenv/config');
 
 module.exports = {
   devServer: {
-    contentBase: './public',
+    contentBase: path.resolve(__dirname, 'public'),
+    historyApiFallback: true,
+    publicPath: '/',
   },
   entry: `${__dirname}/src/index.js`,
   output: {
     path: `${__dirname}/public/`,
     filename: 'bundle.js',
+    publicPath: '/',
   },
-  watch: true,
+  watch: false,
 
   module: {
     rules: [
@@ -24,7 +29,8 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          // fallback to style-loader in development
+          process.env.PRODUCTION === 'true' ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
           'sass-loader',
         ],
@@ -34,7 +40,6 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './public/index.html',
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
