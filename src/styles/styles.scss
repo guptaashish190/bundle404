@@ -154,6 +154,62 @@ body{
     }
 }
 
+.info{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    .header1{
+        position: absolute;
+        width: 180px;
+        right: -60px;
+    }
+    .header2{
+        position: absolute;
+        width: 180px;
+        left: -50px;
+    }
+    h1{
+        align-self: center;
+        color: #FB5B27;
+    }
+    p{
+        font-size: 1.35em;
+        width: 70%;
+        color: #5A89DE;
+        align-self: center;
+        text-align: center;
+    }
+    .box-container{
+        display: flex;
+        align-self: center;
+        margin-top: 90px;
+        width: 80%;
+        justify-content: space-evenly;
+        .box{
+            height: 220px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px #FB5B27;
+            width: 300px;
+            border: #FB5B27 solid 1px;
+            display: flex;
+            flex-direction: column;
+           justify-content: flex-start; 
+            margin: 0;
+            h2{
+                color: #FB5B27;
+                align-self: center;  
+                margin-bottom: 3px;
+                margin-top: 8px; 
+            }
+            p{
+                font-size: 1em;
+                text-align: justify;
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
 .graph-page{
     width: 100%;
     display: flex;
@@ -200,8 +256,9 @@ body{
 
 .createpage{
     display: flex;
-    flex-direction: column;
     width: 100%;
+
+    justify-content: center;
     .header1{
         position: absolute;
         width: 180px;
@@ -211,6 +268,28 @@ body{
         position: absolute;
         width: 180px;
         left: -50px;
+    }
+    button{
+        align-self: center;
+        height: 95px;
+        width: 450px;
+        border-radius: 15px;
+        border: none;
+        font-size: 2.5em;
+        font-weight: normal;
+        color: white;
+        background-color: #FB5B27;
+        box-shadow: 0px 0px 4px black;
+    }
+    p{
+        position: absolute;
+        
+        font-size: 1.5em;
+        color: #5A89DE;
+        span{
+            text-decoration: underline;
+            color: #FB5B27;
+        }
     }
 }
 
@@ -231,12 +310,12 @@ body{
         align-items: center;
         .card{
             position: relative;
-            border-radius: 20px;
+            border-radius: 15px;
             background: rgb(255, 255, 255);
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.068);
             margin: 10px;
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 380px;
             transition: background-color 0.4s ease 0s;
             transition-property: width, height, transform;
             .small-card{
@@ -246,12 +325,21 @@ body{
                 grid-template-rows: 2fr 5fr 1fr 2fr;
                 font-family: 'Roboto', sans-serif;
                 animation: fadein 0.2s ease 0s;
+                .img{
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 10px;
+                img{
+                    width: 100px;
+                    height: 120px;
+                }
+            }
                 .heading{
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-size: 2em;
-                    color: #FB5B27;
+                    color: rgb(82, 82, 82);
                     font-weight: bolder;
                 }
                 .content{
@@ -310,7 +398,16 @@ body{
                         display: flex;
                         color: whitesmoke;
                         justify-content: center;
+                        text-align: center;
                     }
+                    .img{
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom: 90px;
+                    img{
+                        height: 200px;
+                    }
+                }
                 }
                 .right-panel{
                     border-top-right-radius: 10px;
@@ -325,6 +422,28 @@ body{
                         justify-content: center;
                         font-size: 1.3em;
                         line-height: 1.7em;
+                        .exp{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            .heading{
+                                align-self: center;
+                                display: flex;
+                                flex-direction: column;
+                            h3{
+                               align-self: center;
+                                margin-bottom: 0px;
+                                color: #FB5B27;
+                                margin-top: 0;
+                                font-size: 1.5em;
+                            }
+                        }
+                        .context{
+                            align-self: center;
+                            text-align: center;
+                            font-size: 0.9em;
+                        }
+                        }
                     }
                     .formcontent{
                         color: #FB5B27;

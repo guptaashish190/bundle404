@@ -106,30 +106,49 @@ class Expanded extends React.Component {
           value={this.state.date}
         />
       </div>)
-    render() {
-      return (
-        <div className="expanded-card" style={{ display: this.state.status === 'loaded' ? 'grid' : 'none' }}>
-          <div className="left-panel">
-            <div className="heading">
-              {this.props.heading}
+
+      detail = () => {
+        if (this.props.selected === 'starter') {
+          return (<div className="exp"><div className="heading"><h3>New to investing?</h3><h3>Confused?</h3></div>
+            <div className="context">Browse through our curated preset bundles, to choose an investment strategy. </div>
+                  </div>);
+        } else if (this.props.selected === 'mediocre') {
+          return (<div className="exp"><div className="heading"><h3>Already planned for a goal?</h3><h3>Want to pile up some money?</h3></div>
+            <div className="context">Add a goal and get tailor-made bundles by our intelligent suggestion algorithm </div>
+                  </div>);
+        }
+        return (<div className="exp"><div className="heading"><h3>Are you a pro?</h3><h3>Want to control everything?</h3></div>
+          <div className="context">Fine tune every parameter to control the way how your fund is invested. Fully customize and create your own bundle' </div>
+                </div>);
+      }
+
+      render() {
+        return (
+          <div className="expanded-card" style={{ display: this.state.status === 'loaded' ? 'grid' : 'none' }}>
+            <div className="left-panel">
+              <div className="heading">
+                {this.props.heading}
+              </div>
+              <div className="content">
+                {this.props.content}
+              </div>
+              <div className="img">
+                <img src={this.props.img1} alt="" />
+              </div>
             </div>
-            <div className="content">
-              {this.props.content}
+            <div className="right-panel">
+              <div className="content">
+                {!this.state.form && this.detail()}
+                {this.state.form && this.props.selected === 'mediocre' && this.formdata()}
+                {this.state.form && this.props.selected === 'experienced' && this.experienceddata()}
+              </div>
+              <div className="button">
+                <button onClick={() => this.checktype()}>{this.state.form === true && this.props.selected === 'experienced' ? 'Place Order' : 'Browse Bundles'}</button>
+              </div>
             </div>
           </div>
-          <div className="right-panel">
-            <div className="content">
-              {!this.state.form && 'If you want to modify the appClass from a child component such as Welcome which is further down in your application then you will need to use a state management like Redux or Flux to modify the className from a child component otherwise it will get messy fast.'}
-              {this.state.form && this.props.selected === 'mediocre' && this.formdata()}
-              {this.state.form && this.props.selected === 'experienced' && this.experienceddata()}
-            </div>
-            <div className="button">
-              <button onClick={() => this.checktype()}>{this.state.form === true && this.props.selected === 'experienced' ? 'Place Order' : 'Browse Bundles'}</button>
-            </div>
-          </div>
-        </div>
-      );
-    }
+        );
+      }
 }
 
 export default Expanded;

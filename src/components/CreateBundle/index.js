@@ -106,7 +106,8 @@ class CreateBundle extends React.Component {
                   <Card
                     heading="Starter"
                     content="Browse though our preset bundles"
-                    subline="Select this if you are fucked"
+                    img="/images/starter.png"
+                    img1="/images/starter (1).png"
                     onSelect={this.onSelect}
                     selected={this.state.selected}
                     type="starter"
@@ -114,9 +115,10 @@ class CreateBundle extends React.Component {
                     enableBundle={this.enableBundle}
                   />
                   <Card
-                    heading="Mediocre"
-                    content="Browse though our preset bundles"
-                    subline="Select this if you are fucked"
+                    heading="Intermediate"
+                    content="Add a goal and get a suggested bundle"
+                    img="/images/intermediate.png"
+                    img1="/images/intermediate (1).png"
                     onSelect={this.onSelect}
                     selected={this.state.selected}
                     type="mediocre"
@@ -124,9 +126,10 @@ class CreateBundle extends React.Component {
                     enableBundle={this.enableBundle}
                   />
                   <Card
-                    heading="Experienced"
-                    content="Browse though our preset bundles"
-                    subline="Select this if you are fucked"
+                    heading="Expert"
+                    content="Fine tune and customize to create your own bundle"
+                    img="/images/expert.png"
+                    img1="/images/expert (1).png"
                     onSelect={this.onSelect}
                     selected={this.state.selected}
                     type="experienced"
