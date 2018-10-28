@@ -636,6 +636,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
     flex-direction: column;
     button{
         color: white;
@@ -963,4 +964,3 @@ body{
       -webkit-transform: rotate(-405deg);
     }
   }
-  
