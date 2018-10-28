@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.(s?)css$/,
         use: [
           // fallback to style-loader in development
           process.env.PRODUCTION === 'true' ? MiniCssExtractPlugin.loader : 'style-loader',

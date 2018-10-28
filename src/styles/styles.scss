@@ -257,13 +257,128 @@ body{
                     border-bottom-right-radius: 10px;
                     background: #fff;
                     display: grid;
+                    padding: 30px;
+                    padding-bottom: 0px;
                     grid-template-rows: 4fr 1fr;
                     .content{
                         display: flex;
                         justify-content: center;
                         font-size: 1.3em;
-                        padding: 30px;
                         line-height: 1.7em;
+                    }
+                    .formcontent{
+                        color: #FB5B27;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        h2{
+                            align-self: center;
+                            margin-top: 0;
+                        }
+                        h3{
+                            align-self: center;
+                            margin-top: 0;
+                            margin-bottom: 5px;
+                        }
+                        .field{
+                            align-self: center;
+                            display: flex;
+                        h4{
+                            margin-top: 0;
+                            margin-bottom: 5px;
+                        }
+                        input{
+                            height: 20px;
+                            margin-left: 20px;
+                            border: none;
+                            border-bottom: black solid 1px;
+                        }
+                        input:focus{
+                            outline: none;
+                        }
+                    }
+                        .calendar{
+                            width: 400px;
+                            height: 200px;
+                        }
+                        .react-calendar{
+                            align-self: center;
+                            height: 200px;
+                            width: 320px;
+                            .react-calendar__navigation{
+                                width: 320px;
+                                margin-bottom: 0px;
+                            }
+                        .react-calendar__month-view {
+                            height: 200px;
+                           button{
+                               height: 20px;
+                               width: 5px;
+                             time{
+                                 position: relative;
+                                 top: -9px;
+                             }
+                           }
+                        }
+                    }
+                        .imagepanel{
+                            align-self: center;
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            .imagerow{
+                                display: flex;
+                                justify-content: space-evenly;
+                                margin-bottom: 30px;
+                                .box{
+                                    height: 33px;
+                                    width: 33px;
+                                    border: #FB5B27 solid 1px;
+                                    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.336);
+                                    border-radius: 10px;
+                                img{
+                                    height: 25px;
+                                    padding: 3px;
+                                }
+                            }
+                            }
+                        }
+                        .select{
+                            text-align: center;
+                            display: flex;
+                            justify-content: space-evenly;
+                            h3{
+                                align-self: center;
+                                margin-top: 0;
+                                margin-bottom: 5px;
+                                color: #5B4B46;
+                            }
+                            p{
+                                color: #5B4B46;
+                                font-size: 0.8em;
+                            }
+                        }
+                        .data{
+                            margin-top: 5px;
+                            height: 50px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-evenly;
+                            h2{
+                                margin-top: 15px;
+                              margin-bottom: 0;
+                              font-weight: normal;
+                              color: #5B4B46;  
+                            }
+                            input{
+                                border: none;
+                                border-bottom: black 1px solid;
+                                width: 250px;
+                            }
+                            input:focus{
+                                outline: none;
+                            }
+                        }
                     }
                     .button{
                         display: flex;
