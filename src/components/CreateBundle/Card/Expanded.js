@@ -29,6 +29,19 @@ class Expanded extends React.Component {
       } else if (this.props.selected === 'starter') {
         this.props.enableBundle(this.props.type);
       }
+      if (this.state.form === true) {
+        if (this.props.type === 'mediocre') {
+          this.props.enableBundle(this.props.type, {
+            date: this.state.date,
+            amount: this.state.amount,
+          });
+        } else {
+          this.props.enableBundle(this.props.type, {
+            date: this.state.date,
+            amount: this.state.amount,
+          });
+        }
+      }
     }
 
     experienceddata = () => (

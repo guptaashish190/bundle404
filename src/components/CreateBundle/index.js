@@ -3,6 +3,7 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import shortid from 'shortid';
 import Card from './Card/Card';
+import Invest from './InvestScreen';
 
 class CreateBundle extends React.Component {
     state = {
@@ -10,7 +11,9 @@ class CreateBundle extends React.Component {
       bundleenable: false,
       queries: '',
       bundles: [],
+      investScreen: false,
     }
+
 
       onSelect = (type) => {
         this.setState({
@@ -25,7 +28,6 @@ class CreateBundle extends React.Component {
           selected: '',
         });
       }
-
       getCards = ({ data }) => {
         if (data.Bundle) {
           return data.Bundle.map((elem) => {
@@ -61,7 +63,7 @@ class CreateBundle extends React.Component {
                   </div>
                 </div>
                 <div className="button">
-                  <button>Invest Now</button>
+                  <button onClick={() => this.setState({ investScreen: true })}>Invest Now</button>
                 </div>
               </div>
             );
@@ -70,7 +72,15 @@ class CreateBundle extends React.Component {
         return <div />;
       }
 
-      enableBundle = (type) => {
+      closeInvestScreen = () => {
+        this.setState({
+          investScreen: false,
+        });
+      }
+
+
+      enableBundle = (type, opts) => {
+        console.log(type);
         this.setState({
           bundleenable: true,
           queries: gql`
@@ -133,6 +143,7 @@ class CreateBundle extends React.Component {
                   )}
                 </Query>
           }
+            {this.state.investScreen ? <Invest closeInvestScreen={this.closeInvestScreen} /> : '' }
 
           </div>
         );
