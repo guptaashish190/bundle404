@@ -13,7 +13,6 @@ class Card extends React.Component {
     return (
       <div className={cn} >
         { this.props.selected === '' || this.props.selected !== this.props.type ? <Small {...this.props} /> : <Expanded {...this.props} />}
-
         <div className="close" style={{ display: this.props.selected !== '' && this.props.type === this.props.selected ? 'block' : 'none' }} onClick={() => this.props.onCloseExpand()} />
 
       </div>

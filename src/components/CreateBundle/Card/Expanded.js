@@ -20,18 +20,19 @@ class Expanded extends React.Component {
       clearInterval(this.interval);
     }
     onChange = date => this.setState({ date })
+
+
+    onClick = () => {
+      if (this.props.type === 'starter') {
+        this.props.enableBundle(this.props.type);
+      }
+    }
     checktype = () => {
       if (this.props.selected === 'mediocre' || this.props.selected === 'experienced') {
         this.setState({
           form: true,
         });
       }
-    }
-
-    amountchange = (value) => {
-      this.setState({
-        amount: value,
-      });
     }
 
     experienceddata = () => (
@@ -55,6 +56,12 @@ class Expanded extends React.Component {
         </div>
       </div>
     )
+    amountchange = (value) => {
+      this.setState({
+        amount: value,
+      });
+    }
+
     formdata = () => (
       <div className="formcontent"><h2>Select Your Goal</h2>
         <div className="imagepanel">
@@ -83,7 +90,6 @@ class Expanded extends React.Component {
           value={this.state.date}
         />
       </div>)
-
     render() {
       return (
         <div className="expanded-card" style={{ display: this.state.status === 'loaded' ? 'grid' : 'none' }}>
