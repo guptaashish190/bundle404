@@ -63,6 +63,13 @@ class Expanded extends React.Component {
           <h2>Amount :</h2>
           <input />
         </div>
+        <div className="fund" >
+          <span>Bonds</span>
+          <div className="pill" >
+            <span>T-Bills</span>
+          </div>
+        </div>
+        <p>Fund Allocation</p>
       </div>
     )
     amountchange = (value) => {
@@ -117,7 +124,7 @@ class Expanded extends React.Component {
               {this.state.form && this.props.selected === 'experienced' && this.experienceddata()}
             </div>
             <div className="button">
-              <button onClick={() => this.checktype()}>Browse Bundles</button>
+              <button onClick={() => this.checktype()}>{this.state.form === true && this.props.selected === 'experienced' ? 'Place Order' : 'Browse Bundles'}</button>
             </div>
           </div>
         </div>
