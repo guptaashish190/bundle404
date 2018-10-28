@@ -21,17 +21,13 @@ class Expanded extends React.Component {
     }
     onChange = date => this.setState({ date })
 
-
-    onClick = () => {
-      if (this.props.type === 'starter') {
-        this.props.enableBundle(this.props.type);
-      }
-    }
     checktype = () => {
       if (this.props.selected === 'mediocre' || this.props.selected === 'experienced') {
         this.setState({
           form: true,
         });
+      } else if (this.props.selected === 'starter') {
+        this.props.enableBundle(this.props.type);
       }
     }
 
