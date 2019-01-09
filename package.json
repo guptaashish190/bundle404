@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start": "node server.js",
     "transpile": "babel src -d dist --copy-files"
   },
   "main": "dist/index.js",
